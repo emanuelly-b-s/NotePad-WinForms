@@ -1,5 +1,6 @@
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace NotePad
@@ -77,6 +78,22 @@ namespace NotePad
 
                 richTextBox1.Text = fileContent;
             }
+        }
+
+        private void fontSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            using FontDialog fontDialog1 = new FontDialog();
+
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                richTextBox1.Font = fontDialog1.Font; //apply new font to all text
+            }
+        }
+
+        private void fontColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
