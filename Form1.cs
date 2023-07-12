@@ -94,7 +94,14 @@ namespace NotePad
 
         private void fontColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using FontDialog fontDialog1 = new FontDialog();
 
+            fontDialog1.ShowColor = true;
+
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                richTextBox1.SelectionColor = fontDialog1.Color;
+            }
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
