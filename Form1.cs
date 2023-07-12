@@ -87,7 +87,7 @@ namespace NotePad
 
             if (fontDialog1.ShowDialog() != DialogResult.Cancel)
             {
-                richTextBox1.Font = fontDialog1.Font; //apply new font to all text
+                richTextBox1.SelectionFont = fontDialog1.Font; //apply new font to all text
             }
         }
 
