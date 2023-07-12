@@ -1,5 +1,6 @@
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace NotePad
 {
@@ -31,21 +32,51 @@ namespace NotePad
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            var textFile = richTextBox1;
 
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //Cria um stream usando o nome do arquivo
-                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
+                // Create a stream using the filename
+                FileStream fs = new(saveFileDialog1.FileName, FileMode.Create);
 
-                //Cria um escrito que irá escrever no stream
+                // Create a script that will write to the stream
                 StreamWriter writer = new StreamWriter(fs);
-                //escreve o conteúdo da caixa de texto no stream
-                writer.Write(richTextBox1.Text);
-                //fecha o escrito e o stream
+
+                // Writes the content of the textbox to the stream
+                writer.Write(textFile.Text);
+
+                // Close the write and stream
                 writer.Close();
             }
 
         }
 
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using OpenFileDialog openFileDialog = new OpenFileDialog();
+
+
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Get the path of specified file
+                filePath = openFileDialog.FileName;
+
+                // Read the contents of the file into a stream
+                var fileStream = openFileDialog.OpenFile();
+
+                using StreamReader reader = new StreamReader(fileStream);
+                fileContent = reader.ReadToEnd();
+
+                richTextBox1.Text = fileContent;
+            }
+        }
     }
 }
