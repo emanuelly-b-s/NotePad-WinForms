@@ -39,8 +39,12 @@
             optionsToolStripMenuItem = new ToolStripMenuItem();
             redoToolStripMenuItem = new ToolStripMenuItem();
             copyToolStripMenuItem = new ToolStripMenuItem();
-            richTextBox1 = new RichTextBox();
             pasteToolStripMenuItem = new ToolStripMenuItem();
+            textAlignToolStripMenuItem = new ToolStripMenuItem();
+            centerToolStripMenuItem = new ToolStripMenuItem();
+            rightToolStripMenuItem = new ToolStripMenuItem();
+            leftToolStripMenuItem = new ToolStripMenuItem();
+            richTextBox1 = new RichTextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,7 +108,7 @@
             // 
             // optionsToolStripMenuItem
             // 
-            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { redoToolStripMenuItem, copyToolStripMenuItem, pasteToolStripMenuItem });
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { redoToolStripMenuItem, copyToolStripMenuItem, pasteToolStripMenuItem, textAlignToolStripMenuItem });
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new Size(61, 20);
             optionsToolStripMenuItem.Text = "Options";
@@ -123,6 +127,42 @@
             copyToolStripMenuItem.Text = "Copy";
             copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
             // 
+            // pasteToolStripMenuItem
+            // 
+            pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            pasteToolStripMenuItem.Size = new Size(180, 22);
+            pasteToolStripMenuItem.Text = "Paste";
+            pasteToolStripMenuItem.Click += pasteToolStripMenuItem_Click;
+            // 
+            // textAlignToolStripMenuItem
+            // 
+            textAlignToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { centerToolStripMenuItem, rightToolStripMenuItem, leftToolStripMenuItem });
+            textAlignToolStripMenuItem.Name = "textAlignToolStripMenuItem";
+            textAlignToolStripMenuItem.Size = new Size(180, 22);
+            textAlignToolStripMenuItem.Text = "Text align";
+            textAlignToolStripMenuItem.Click += textAlignToolStripMenuItem_Click;
+            // 
+            // centerToolStripMenuItem
+            // 
+            centerToolStripMenuItem.Name = "centerToolStripMenuItem";
+            centerToolStripMenuItem.Size = new Size(180, 22);
+            centerToolStripMenuItem.Text = "Center";
+            centerToolStripMenuItem.Click += centerToolStripMenuItem_Click;
+            // 
+            // rightToolStripMenuItem
+            // 
+            rightToolStripMenuItem.Name = "rightToolStripMenuItem";
+            rightToolStripMenuItem.Size = new Size(180, 22);
+            rightToolStripMenuItem.Text = "Right";
+            rightToolStripMenuItem.Click += rightToolStripMenuItem_Click;
+            // 
+            // leftToolStripMenuItem
+            // 
+            leftToolStripMenuItem.Name = "leftToolStripMenuItem";
+            leftToolStripMenuItem.Size = new Size(180, 22);
+            leftToolStripMenuItem.Text = "Left";
+            leftToolStripMenuItem.Click += leftToolStripMenuItem_Click;
+            // 
             // richTextBox1
             // 
             richTextBox1.BorderStyle = BorderStyle.None;
@@ -132,13 +172,6 @@
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "yj";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
-            // 
-            // pasteToolStripMenuItem
-            // 
-            pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            pasteToolStripMenuItem.Size = new Size(180, 22);
-            pasteToolStripMenuItem.Text = "Paste";
-            pasteToolStripMenuItem.Click += pasteToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -173,5 +206,9 @@
         private ToolStripMenuItem redoToolStripMenuItem;
         private ToolStripMenuItem copyToolStripMenuItem;
         private ToolStripMenuItem pasteToolStripMenuItem;
+        private ToolStripMenuItem textAlignToolStripMenuItem;
+        private ToolStripMenuItem centerToolStripMenuItem;
+        private ToolStripMenuItem rightToolStripMenuItem;
+        private ToolStripMenuItem leftToolStripMenuItem;
     }
 }

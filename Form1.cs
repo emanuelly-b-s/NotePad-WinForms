@@ -87,7 +87,8 @@ namespace NotePad
 
             if (fontDialog1.ShowDialog() != DialogResult.Cancel)
             {
-                richTextBox1.SelectionFont = fontDialog1.Font; //apply new font to all text
+                richTextBox1.SelectionFont = fontDialog1.Font;
+                richTextBox1.Font = fontDialog1.Font; //apply new font to all text
             }
         }
 
@@ -110,6 +111,29 @@ namespace NotePad
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Paste();
+        }
+
+        private void textAlignToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+        }
+
+        private void centerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
         }
     }
 }
