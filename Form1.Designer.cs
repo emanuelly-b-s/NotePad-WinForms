@@ -35,14 +35,18 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             formatToolStripMenuItem = new ToolStripMenuItem();
             fontSToolStripMenuItem = new ToolStripMenuItem();
-            richTextBox1 = new RichTextBox();
             fontColorToolStripMenuItem = new ToolStripMenuItem();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            redoToolStripMenuItem = new ToolStripMenuItem();
+            copyToolStripMenuItem = new ToolStripMenuItem();
+            richTextBox1 = new RichTextBox();
+            pasteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, formatToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, formatToolStripMenuItem, optionsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -87,9 +91,37 @@
             // fontSToolStripMenuItem
             // 
             fontSToolStripMenuItem.Name = "fontSToolStripMenuItem";
-            fontSToolStripMenuItem.Size = new Size(180, 22);
+            fontSToolStripMenuItem.Size = new Size(132, 22);
             fontSToolStripMenuItem.Text = "Font";
             fontSToolStripMenuItem.Click += fontSToolStripMenuItem_Click;
+            // 
+            // fontColorToolStripMenuItem
+            // 
+            fontColorToolStripMenuItem.Name = "fontColorToolStripMenuItem";
+            fontColorToolStripMenuItem.Size = new Size(132, 22);
+            fontColorToolStripMenuItem.Text = "Font-Color";
+            fontColorToolStripMenuItem.Click += fontColorToolStripMenuItem_Click;
+            // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { redoToolStripMenuItem, copyToolStripMenuItem, pasteToolStripMenuItem });
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(61, 20);
+            optionsToolStripMenuItem.Text = "Options";
+            // 
+            // redoToolStripMenuItem
+            // 
+            redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            redoToolStripMenuItem.Size = new Size(180, 22);
+            redoToolStripMenuItem.Text = "Redo";
+            redoToolStripMenuItem.Click += redoToolStripMenuItem_Click;
+            // 
+            // copyToolStripMenuItem
+            // 
+            copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            copyToolStripMenuItem.Size = new Size(180, 22);
+            copyToolStripMenuItem.Text = "Copy";
+            copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
             // 
             // richTextBox1
             // 
@@ -98,15 +130,15 @@
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(800, 426);
             richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
+            richTextBox1.Text = "yj";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
-            // fontColorToolStripMenuItem
+            // pasteToolStripMenuItem
             // 
-            fontColorToolStripMenuItem.Name = "fontColorToolStripMenuItem";
-            fontColorToolStripMenuItem.Size = new Size(180, 22);
-            fontColorToolStripMenuItem.Text = "Font-Color";
-            fontColorToolStripMenuItem.Click += fontColorToolStripMenuItem_Click;
+            pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            pasteToolStripMenuItem.Size = new Size(180, 22);
+            pasteToolStripMenuItem.Text = "Paste";
+            pasteToolStripMenuItem.Click += pasteToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -137,5 +169,9 @@
         private RichTextBox richTextBox1;
         private ToolStripMenuItem fontSToolStripMenuItem;
         private ToolStripMenuItem fontColorToolStripMenuItem;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem redoToolStripMenuItem;
+        private ToolStripMenuItem copyToolStripMenuItem;
+        private ToolStripMenuItem pasteToolStripMenuItem;
     }
 }
