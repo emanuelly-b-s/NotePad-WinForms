@@ -17,6 +17,28 @@ namespace NotePad
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.fileName = string.Empty;
+
+            DialogResult res = MessageBox.Show("You want to save the current file", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (res == DialogResult.OK)
+            {
+                using SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                var textFile = richTextBox1;
+                saveFileDialog1.Filter = "txt(*.txt)|*.txt|All files (*.*)|*.*";
+                saveFileDialog1.FilterIndex = 2;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    FileStream fs = new(saveFileDialog1.FileName, FileMode.Create);
+
+                    StreamWriter writer = new StreamWriter(fs);
+
+                    writer.Write(textFile.Text);
+
+                    writer.Close();
+                }
+            }
+
             richTextBox1.Clear();
         }
 
@@ -34,6 +56,8 @@ namespace NotePad
         {
             using SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             var textFile = richTextBox1;
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -60,7 +84,7 @@ namespace NotePad
             using OpenFileDialog openFileDialog = new OpenFileDialog();
 
 
-            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.InitialDirectory = "c:\\Documentos";
             openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
